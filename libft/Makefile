@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 09:09:09 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/06/12 11:17:44 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/06/14 13:46:33 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -I../include
 RM = rm -f
 FILES = ft_strlen.c ft_strjoin.c ft_strchr.c ft_strncmp.c get_next_line.c \
 			ft_printf.c print_char.c print_str.c print_ptr.c print_nbr.c \
-			print_unint.c print_hex.c
+			print_unint.c print_hex.c ft_strlcpy.c
 OBJS = $(FILES:.c=.o)
 
 all: $(NAME)

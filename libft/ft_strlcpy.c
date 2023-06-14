@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 07:23:47 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/14 10:55:41 by gcoqueir         ###   ########.fr       */
+/*   Created: 2023/06/14 13:41:31 by gcoqueir          #+#    #+#             */
+/*   Updated: 2023/06/14 13:46:57 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
-	t_map	map;
+	size_t	count;
+	size_t	src_len;
 
-	map.file = argv[1];
-	valid_map_call(argc, map.file, &map);
-	get_map_size(&map);
-	allocation(&map);
-	valid_map_draw(&map);
-	free_for_finish(&map);
-	return (0);
+	src_len = ft_strlen(src);
+	count = 0;
+	if (size > 0)
+	{
+		while (count < size - 1 && src[count] != '\0')
+		{
+			dst[count] = src[count];
+			count++;
+		}
+		dst[count] = '\0';
+	}
+	return (src_len);
 }

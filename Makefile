@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:19:15 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/06/14 10:53:27 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/06/14 12:06:50 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CFLAGS = -Wall -Wextra -Werror -g -I$(INC)
 INC = ./include
 LIBFT = ./libft
 RM = rm -f
-FILES = so_long.c valid.c valid_utils.c error.c memory_usage.c
+FILES = so_long.c valid.c valid_utils.c valid_map_draw_utils.c \
+			error.c memory_usage.c
 OBJS = $(FILES:.c=.o)
 
 all: $(NAME)
