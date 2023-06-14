@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/14 10:14:52 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:48:03 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,8 @@ void	draw_map(t_map *map)
 	size_t	y_count;
 	size_t	x_count;
 	char	*temp;
-	int		read_len;
 
-	map->fd = open(map->file, O_RDONLY);
-	temp = malloc(1 * sizeof(char));
+	temp = malloc(2 * sizeof(char));
 	if (temp == NULL)
 		return ;
 	y_count = -1;
@@ -61,15 +59,14 @@ void	draw_map(t_map *map)
 		x_count = -1;
 		while (++x_count <= map->x)
 		{
-			read_len = read(map->fd, temp, 1);
-			if (read_len == 0)
+			if (read(map->fd, temp, 1) == 0)
 			{
 				free(temp);
 				map->map[y_count][x_count] = '\0';
 				return ;
 			}
 			map->map[y_count][x_count] = *temp;
-			temp[read_len] = '\0';
+			temp[1] = '\0';
 		}
 		map->map[y_count][x_count] = '\0';
 	}
