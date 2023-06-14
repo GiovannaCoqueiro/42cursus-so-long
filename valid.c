@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/14 19:17:18 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/14 20:00:58 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	valid_map_draw(t_map *map)
 	allocation(&copy);
 	copy_map(&copy, map);
 	copy.path_check = 0;
-	// if (check_for_nopath(&copy, map->y, map->x) == 0)
-	// {
-	// 	free_for_finish(map);
-	// 	error_check(8, "ERROR!\nMap does not match the requirements!\n");
-	// }
+	if (check_for_nopath(&copy, map->player_y, map->player_x) == 0)
+	{
+		free_for_finish(map);
+		error_check(8, "ERROR!\nMap does not match the requirements!\n");
+	}
 	free_for_finish(&copy);
 }

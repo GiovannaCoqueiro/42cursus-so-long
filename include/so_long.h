@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:17:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/14 19:14:44 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:21:27 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int			check_for_wall_surround(t_map *map);
 int			check_for_player_and_exit(t_map *map);
 int			check_for_coins(t_map *map);
 int			check_for_dif_char(t_map *map);
-// int			check_for_nopath(t_map *map, size_t y, size_t x);
+int			check_for_nopath(t_map *map, size_t y, size_t x);
 void		copy_map(t_map *copy, t_map *map);
 void		free_for_finish(t_map *map);
 void		error_check(int i, char *errormsg);
