@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:17:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 18:01:32 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:41:24 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ typedef struct s_game
 void		valid_map_call(int argc, char *map_path, t_map *map);
 void		get_map_size(t_map *map);
 void		allocation(t_map *map);
+
+
 void		valid_map_draw(t_map *map);
 void		draw_map(t_map *map);
 int			check_for_wall_surround(t_map *map);
@@ -90,6 +92,8 @@ void		put_coin(t_map *map, t_game *game);
 
 
 void		free_map(t_map *map);
-void		error_check(int i, char *errormsg);
+void		free_images(t_game *game);
+void		free_mlx(t_game *game);
+void		error_check(int i, char *errormsg, int program_stage, t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 14:08:36 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:39:24 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	valid_map_call(int argc, char *map_path, t_map *map)
 	int	fd;
 
 	if (argc < 2 || argc > 2)
-		error_check(1, "ERROR!\nUsage: ./so_long maps/<file>.ber\n");
+		error_check(1, "ERROR!\nUsage: ./so_long maps/<file>.ber\n", 0, NULL);
 	len = ft_strlen(map_path);
 	if (len <= 4 || (ft_strncmp(&map_path[len - 4], ".ber", 4) != 0))
-		error_check(2, "ERROR!\nInvalid map name!\n");
+		error_check(2, "ERROR!\nInvalid map name!\n", 0, NULL);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 	{
 		close(fd);
-		error_check(3, "ERROR!\nMap does not exist!\n");
+		error_check(3, "ERROR!\nMap doesn't exist!\n", 0, NULL);
 	}
 	map->fd = fd;
 }
@@ -42,7 +42,7 @@ void	valid_map_draw(t_map *map)
 		|| check_for_coins(map) == 0 || check_for_dif_char(map) == 0)
 	{
 		free_map(map);
-		error_check(8, "ERROR!\nMap does not match the requirements!\n");
+		error_check(8, "ERROR!\nIt doesn't match the requirements!\n", 0, NULL);
 	}
 	copy.height = map->height;
 	copy.width = map->width;
@@ -52,7 +52,7 @@ void	valid_map_draw(t_map *map)
 	if (check_for_nopath(&copy, map->player_y, map->player_x) == 0)
 	{
 		free_map(map);
-		error_check(8, "ERROR!\nMap does not match the requirements!\n");
+		error_check(8, "ERROR!\nIt doesn't match the requirements!\n", 0, NULL);
 	}
 	free_map(&copy);
 }

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 10:52:19 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 14:12:07 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:34:50 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	allocation(t_map *map)
 
 	map->map = malloc(map->height * sizeof(char *));
 	if (map->map == NULL)
-		error_check(7, "ERROR!\nFail to allocate memory!");
+		error_check(7, "ERROR!\nFail to allocate memory!", 0, NULL);
 	i = -1;
 	while (++i < map->height)
 	{
@@ -32,7 +32,8 @@ void	allocation(t_map *map)
 			j = -1;
 			while (++j < i)
 				free(map->map[i]);
-			error_check(7, "ERROR!\nFail to allocate memory!");
+			free(map->map);
+			error_check(7, "ERROR!\nFail to allocate memory!", 0, NULL);
 		}
 	}
 }
@@ -45,4 +46,32 @@ void	free_map(t_map *map)
 	while (++i < map->height)
 		free(map->map[i]);
 	free(map->map);
+}
+
+void	free_mlx(t_game *game)
+{
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+}
+
+void	free_images(t_game *game)
+{
+	if (game->finn_d != NULL)
+		mlx_destroy_image(game->mlx, game->finn_d);
+	if (game->finn_l != NULL)
+		mlx_destroy_image(game->mlx, game->finn_l);
+	if (game->finn_r != NULL)
+		mlx_destroy_image(game->mlx, game->finn_r);
+	if (game->finn_u != NULL)
+		mlx_destroy_image(game->mlx, game->finn_u);
+	if (game->exit != NULL)
+		mlx_destroy_image(game->mlx, game->exit);
+	if (game->wall != NULL)
+		mlx_destroy_image(game->mlx, game->wall);
+	if (game->ground != NULL)
+		mlx_destroy_image(game->mlx, game->ground);
+	if (game->iceking != NULL)
+		mlx_destroy_image(game->mlx, game->iceking);
+	if (game->coin != NULL)
+		mlx_destroy_image(game->mlx, game->coin);
 }

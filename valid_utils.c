@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:40:07 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 14:12:51 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:40:45 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	get_map_size(t_map *map)
 		if (map->width != ft_strlen(line) - 1 && line[map->width] != '\0')
 		{
 			free(line);
-			error_check(6, "ERROR!\nThe map must be rectangular!\n");
+			error_check(6, "ERROR!\nThe map must be rectangular!\n", 0, NULL);
 		}
 		free(line);
 	}
 	map->height = count;
 	if (map->height > 16 || map->width > 40)
-		error_check(5, "ERROR!\nMap is too big!\n");
+		error_check(5, "ERROR!\nMap is too big!\n", 0, NULL);
 	map->size = map->width * map->height;
 	close(map->fd);
 }

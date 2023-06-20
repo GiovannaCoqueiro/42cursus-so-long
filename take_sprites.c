@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   genarate_images.c                                  :+:      :+:    :+:   */
+/*   take_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:32:08 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 18:47:23 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:33:35 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ void	take_sprites(t_game *game)
 	if (game->finn_d == NULL || game->finn_l == NULL || game->finn_r == NULL
 		|| game->finn_u == NULL || game->exit == NULL || game->ground == NULL
 		|| game->wall == NULL || game->iceking == NULL || game->coin == NULL)
-		error_check(11, "ERROR!\nFail to take images!\n");
+	{
+		error_check(11, "ERROR!\nFail to take images!\n", 2, game);
+	}
 }

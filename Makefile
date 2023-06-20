@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:19:15 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/06/20 18:47:09 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/06/20 19:53:25 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ FILES = so_long.c \
 		error.c \
 		memory_usage.c \
 		game_init.c \
-		genarate_images.c \
+		take_sprites.c \
 		put_images.c
 OBJS = $(FILES:.c=.o)
 GREEN = \033[1;32m

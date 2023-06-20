@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:23:47 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 17:45:03 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:14:37 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(game.mlx, no_input, &game);
 	mlx_key_hook(game.window, key_pressed, &game);
 	mlx_loop(game.mlx);
-	mlx_destroy_display(game.mlx);
-	free(game.mlx);
+	free_images(&game);
+	free_mlx(&game);
 
 	free_map(&map);
 	return (0);
