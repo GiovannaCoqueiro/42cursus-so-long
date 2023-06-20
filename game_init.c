@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   game_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 13:41:31 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/14 13:46:57 by gcoqueir         ###   ########.fr       */
+/*   Created: 2023/06/20 14:47:00 by gcoqueir          #+#    #+#             */
+/*   Updated: 2023/06/20 14:58:49 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t size)
+void	game_init(t_game *game)
 {
-	size_t	count;
-	size_t	src_len;
-
-	src_len = ft_strlen(src);
-	count = 0;
-	if (size > 0)
+	game->mlx = mlx_init();
+	if (game->mlx == NULL)
+		error_check(9, "ERROR\nCouldn't make a connection with Xserver!\n");
+	game->window = mlx_new_window(game->mlx, (game->map->width * 64),
+			(game->map->height * 64), "Adventure Time!");
+	if (game->window == NULL)
 	{
-		while (count < size - 1 && src[count] != '\0')
-		{
-			dst[count] = src[count];
-			count++;
-		}
-		dst[count] = '\0';
+		free(game->mlx);
+		error_check(10, "ERROR\nCouldn't open the window!\n");
 	}
-	return (src_len);
 }

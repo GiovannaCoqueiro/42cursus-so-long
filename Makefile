@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:19:15 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/06/20 08:29:46 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/06/20 18:47:09 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,14 @@ INC = ./include
 LIBFT = ./libft
 RM = rm -f
 FILES = so_long.c \
-		valid.c valid_utils.c \
+		valid.c \
+		valid_utils.c \
 		valid_map_draw_utils.c \
-		error.c memory_usage.c
+		error.c \
+		memory_usage.c \
+		game_init.c \
+		genarate_images.c \
+		put_images.c
 OBJS = $(FILES:.c=.o)
 GREEN = \033[1;32m
 
@@ -33,6 +38,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@make -C $(LIBFT)
 	@$(CC) $(OBJS) $(CFLAGS) $(LIBFT)/libft.a -o $(NAME) $(XFLAGS)
+
+bonus: all
 
 clean:
 	@make clean -C $(LIBFT)
