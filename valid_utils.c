@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:40:07 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/14 14:12:52 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:12:51 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	get_map_size(t_map *map)
 {
 	char	*line;
-	size_t	count;
+	int		count;
 
-	map->x = 0;
+	map->width = 0;
 	count = 0;
 	while (1)
 	{
@@ -25,36 +25,36 @@ void	get_map_size(t_map *map)
 		if (line == NULL)
 			break ;
 		count++;
-		if (map->x == 0)
-			map->x = ft_strlen(line) - 1;
-		if (map->x != ft_strlen(line) - 1 && line[map->x] != '\0')
+		if (map->width == 0)
+			map->width = ft_strlen(line) - 1;
+		if (map->width != ft_strlen(line) - 1 && line[map->width] != '\0')
 		{
 			free(line);
 			error_check(6, "ERROR!\nThe map must be rectangular!\n");
 		}
 		free(line);
 	}
-	map->y = count;
-	if (map->y > 16 || map->x > 40)
+	map->height = count;
+	if (map->height > 16 || map->width > 40)
 		error_check(5, "ERROR!\nMap is too big!\n");
-	map->size = map->x * map->y;
+	map->size = map->width * map->height;
 	close(map->fd);
 }
 
 void	draw_map(t_map *map)
 {
-	size_t	y_count;
-	size_t	x_count;
+	int		x_count;
+	int		y_count;
 	char	*temp;
 
 	temp = malloc(2 * sizeof(char));
 	if (temp == NULL)
 		return ;
 	y_count = -1;
-	while (++y_count < map->y)
+	while (++y_count < map->height)
 	{
 		x_count = -1;
-		while (++x_count <= map->x)
+		while (++x_count <= map->width)
 		{
 			if (read(map->fd, temp, 1) == 0)
 			{
@@ -72,14 +72,14 @@ void	draw_map(t_map *map)
 
 void	copy_map(t_map *copy, t_map *map)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = -1;
-	while (++i < map->y)
+	while (++i < map->height)
 	{
 		j = -1;
-		while (++j <= map->x)
+		while (++j <= map->width)
 			copy->map[i][j] = map->map[i][j];
 	}
 }

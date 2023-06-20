@@ -6,15 +6,15 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 08:41:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/12 09:21:18 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:13:09 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *s)
+int	ft_strlen(char *s)
 {
-	size_t	count;
+	int	count;
 
 	count = 0;
 	while (s[count] != '\0')

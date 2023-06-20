@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:23:47 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/14 10:55:41 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:12:36 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	main(int argc, char **argv)
 	get_map_size(&map);
 	allocation(&map);
 	valid_map_draw(&map);
-	free_for_finish(&map);
+	free_map(&map);
 	return (0);
 }

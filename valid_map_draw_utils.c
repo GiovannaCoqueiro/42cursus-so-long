@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:05:13 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/14 20:01:45 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:11:13 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 
 int	check_for_wall_surround(t_map *map)
 {
-	size_t	i;
+	int	i;
 
 	i = -1;
-	while (++i < map->x)
-		if (map->map[0][i] != '1' || map->map[map->y - 1][i] != '1')
+	while (++i < map->width)
+		if (map->map[0][i] != '1' || map->map[map->height - 1][i] != '1')
 			return (0);
 	i = -1;
-	while (++i < map->y)
-		if (map->map[i][0] != '1' || map->map[i][map->x - 1] != '1')
+	while (++i < map->height)
+		if (map->map[i][0] != '1' || map->map[i][map->width - 1] != '1')
 			return (0);
 	return (1);
 }
 
 int	check_for_player_and_exit(t_map *map)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	map->player = 0;
 	map->exit = 0;
 	i = -1;
-	while (++i < map->y)
+	while (++i < map->height)
 	{
 		j = -1;
-		while (++j < map->x)
+		while (++j < map->width)
 		{
 			if (map->map[i][j] == 'P')
 			{
@@ -57,15 +57,15 @@ int	check_for_player_and_exit(t_map *map)
 
 int	check_for_coins(t_map *map)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	map->coin = 0;
 	i = -1;
-	while (++i < map->y)
+	while (++i < map->height)
 	{
 		j = -1;
-		while (++j < map->x)
+		while (++j < map->width)
 			if (map->map[i][j] == 'C')
 				map->coin++;
 	}
@@ -76,23 +76,23 @@ int	check_for_coins(t_map *map)
 
 int	check_for_dif_char(t_map *map)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = -1;
-	while (++i < map->y)
+	while (++i < map->height)
 	{
 		j = -1;
-		while (++j < map->x)
+		while (++j < map->width)
 			if (ft_strchr(MAP_CHARS, map->map[i][j]) == NULL)
 				return (0);
 	}
 	return (1);
 }
 
-int	check_for_nopath(t_map *map, size_t y, size_t x)
+int	check_for_nopath(t_map *map, int y, int x)
 {
-	if (y == 0 || y == map->y - 1 || x == 0 || x > map->x - 1)
+	if (y == 0 || y == map->height - 1 || x == 0 || x > map->width - 1)
 		return (0);
 	map->map[y][x] = '1';
 	if (map->map[y - 1][x] != 'E' && map->map[y + 1][x] != 'E' &&
