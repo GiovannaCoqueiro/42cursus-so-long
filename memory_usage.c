@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 10:52:19 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 19:34:50 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/21 07:53:11 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,13 @@ void	free_images(t_game *game)
 		mlx_destroy_image(game->mlx, game->iceking);
 	if (game->coin != NULL)
 		mlx_destroy_image(game->mlx, game->coin);
+}
+
+void	free_for_finish(t_map *map, t_game *game)
+{
+	mlx_destroy_window(game->mlx, game->window);
+	free_images(game);
+	free_map(map);
+	free_mlx(game);
+	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:17:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 19:41:24 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/21 08:42:22 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ typedef struct s_game
 	void	*wall;
 	void	*iceking;
 	void	*coin;
+	int		steps;
 	t_map	*map;
 }			t_game;
 
 void		valid_map_call(int argc, char *map_path, t_map *map);
 void		get_map_size(t_map *map);
 void		allocation(t_map *map);
-
 
 void		valid_map_draw(t_map *map);
 void		draw_map(t_map *map);
@@ -80,8 +80,6 @@ int			check_for_coins(t_map *map);
 int			check_for_dif_char(t_map *map);
 void		copy_map(t_map *copy, t_map *map);
 int			check_for_nopath(t_map *map, int y, int x);
-
-
 void		game_init(t_game *game);
 void		take_sprites(t_game *game);
 void		fill_map(t_map *map, t_game *game);
@@ -91,9 +89,20 @@ void		put_wall_and_ground(t_map *map, t_game *game);
 void		put_coin(t_map *map, t_game *game);
 
 
+void		gameplay(t_game *game);
+void		step_right(t_map *map, t_game *game);
+void		step_left(t_map *map, t_game *game);
+void		step_up(t_map *map, t_game *game);
+void		step_down(t_map *map, t_game *game);
+
+int			key_pressed(int key, t_game *game);
+int			no_input(void);
+
+
 void		free_map(t_map *map);
 void		free_images(t_game *game);
 void		free_mlx(t_game *game);
+void		free_for_finish(t_map *map, t_game *game);
 void		error_check(int i, char *errormsg, int program_stage, t_game *game);
 
 #endif
