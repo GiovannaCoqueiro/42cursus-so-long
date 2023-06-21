@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:40:07 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 19:40:45 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:00:38 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	get_map_size(t_map *map)
 		free(line);
 	}
 	map->height = count;
-	if (map->height > 16 || map->width > 40)
+	if (map->height > 16 || map->width > 30)
 		error_check(5, "ERROR!\nMap is too big!\n", 0, NULL);
 	map->size = map->width * map->height;
 	close(map->fd);

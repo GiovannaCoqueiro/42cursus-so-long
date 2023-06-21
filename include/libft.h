@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 08:39:51 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 17:43:54 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:51:17 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_strlen(char *s);
 char	*ft_strchr(char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char *s1, char *s2);
+char	*ft_itoa(int n);
 char	*get_next_line(int fd);
 int		ft_printf(const char *str, ...);
 int		print_char(char c);

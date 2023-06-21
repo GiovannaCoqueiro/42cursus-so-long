@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 07:34:33 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/21 08:28:45 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:49:05 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 void	gameplay(t_game *game)
 {
-	mlx_loop_hook(game->mlx, no_input, game);
+	mlx_set_font(game->mlx, game->window, "6x10");
 	mlx_key_hook(game->window, key_pressed, game);
+	mlx_hook(game->window, DestroyNotify, NoEventMask, x_press, game);
 	mlx_loop(game->mlx);
+}
+
+int	x_press(t_game *game)
+{
+	free_for_finish(game->map, game);
+	return (1);
 }
 
 int	key_pressed(int key, t_game *game)
@@ -31,10 +38,6 @@ int	key_pressed(int key, t_game *game)
 		step_up(game->map, game);
 	else if (key == XK_s || key == XK_Down)
 		step_down(game->map, game);
-	return (1);
-}
-
-int	no_input(void)
-{
+	print_steps(game);
 	return (1);
 }

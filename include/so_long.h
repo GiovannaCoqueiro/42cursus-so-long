@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:17:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/21 08:42:22 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:25:58 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 # include "libft.h"
 # include <X11/keysym.h>
+# include <X11/X.h>
 # include <fcntl.h>
 # include <mlx.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 # define MAP_CHARS "01CEPX"
@@ -31,7 +30,8 @@
 # define GROUND "textures/ground_64.xpm"
 # define WALL "textures/wall_64.xpm"
 # define ICEKING "textures/iceking_64.xpm"
-# define COIN "textures/coin4_64.xpm"
+# define COIN "textures/coin_64.xpm"
+# define BMO "textures/bmo_64.xpm"
 
 typedef struct s_map
 {
@@ -64,6 +64,7 @@ typedef struct s_game
 	void	*wall;
 	void	*iceking;
 	void	*coin;
+	void	*bmo;
 	int		steps;
 	t_map	*map;
 }			t_game;
@@ -83,11 +84,11 @@ int			check_for_nopath(t_map *map, int y, int x);
 void		game_init(t_game *game);
 void		take_sprites(t_game *game);
 void		fill_map(t_map *map, t_game *game);
-void		put_player(t_map *map, t_game *game);
+void		put_player(t_map *map, t_game *game, char direction);
 void		put_exit_and_enemy(t_map *map, t_game *game);
 void		put_wall_and_ground(t_map *map, t_game *game);
 void		put_coin(t_map *map, t_game *game);
-
+void		print_steps(t_game *game);
 
 void		gameplay(t_game *game);
 void		step_right(t_map *map, t_game *game);
@@ -96,8 +97,7 @@ void		step_up(t_map *map, t_game *game);
 void		step_down(t_map *map, t_game *game);
 
 int			key_pressed(int key, t_game *game);
-int			no_input(void);
-
+int			x_press(t_game *game);
 
 void		free_map(t_map *map);
 void		free_images(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:32:08 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 19:33:35 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:10:54 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ void	take_sprites(t_game *game)
 			&game->img_height);
 	game->coin = mlx_xpm_file_to_image(game->mlx, COIN, &game->img_width,
 			&game->img_height);
+	game->bmo = mlx_xpm_file_to_image(game->mlx, BMO, &game->img_width,
+			&game->img_height);
 	if (game->finn_d == NULL || game->finn_l == NULL || game->finn_r == NULL
 		|| game->finn_u == NULL || game->exit == NULL || game->ground == NULL
-		|| game->wall == NULL || game->iceking == NULL || game->coin == NULL)
-	{
+		|| game->wall == NULL || game->iceking == NULL || game->coin == NULL
+		|| game->bmo == NULL)
 		error_check(11, "ERROR!\nFail to take images!\n", 2, game);
-	}
 }

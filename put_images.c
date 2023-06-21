@@ -6,24 +6,26 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:47:33 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 18:49:22 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:47:42 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	fill_map(t_map *map, t_game *game)
+void	put_player(t_map *map, t_game *game, char direction)
 {
-	put_player(map, game);
-	put_exit_and_enemy(map, game);
-	put_wall_and_ground(map, game);
-	put_coin(map, game);
-}
-
-void	put_player(t_map *map, t_game *game)
-{
-	mlx_put_image_to_window(game->mlx, game->window, game->finn_d,
-		map->player_x * 64, map->player_y * 64);
+	if (direction == 'r')
+		mlx_put_image_to_window(game->mlx, game->window, game->finn_r,
+			map->player_x * 64, map->player_y * 64);
+	else if (direction == 'l')
+		mlx_put_image_to_window(game->mlx, game->window, game->finn_l,
+			map->player_x * 64, map->player_y * 64);
+	else if (direction == 'u')
+		mlx_put_image_to_window(game->mlx, game->window, game->finn_u,
+			map->player_x * 64, map->player_y * 64);
+	else if (direction == 'd')
+		mlx_put_image_to_window(game->mlx, game->window, game->finn_d,
+			map->player_x * 64, map->player_y * 64);
 }
 
 void	put_exit_and_enemy(t_map *map, t_game *game)
@@ -59,8 +61,14 @@ void	put_wall_and_ground(t_map *map, t_game *game)
 		while (++x < map->width)
 		{
 			if (map->map[y][x] == '1')
-				mlx_put_image_to_window(game->mlx, game->window, game->wall,
-					x * 64, y * 64);
+			{
+				if (y == 0 && x == 0)
+					mlx_put_image_to_window(game->mlx, game->window, game->bmo,
+						0, 0);
+				else
+					mlx_put_image_to_window(game->mlx, game->window, game->wall,
+						x * 64, y * 64);
+			}
 			else if (map->map[y][x] == '0')
 				mlx_put_image_to_window(game->mlx, game->window, game->ground,
 					x * 64, y * 64);
@@ -82,4 +90,19 @@ void	put_coin(t_map *map, t_game *game)
 				mlx_put_image_to_window(game->mlx, game->window, game->coin,
 					x * 64, y * 64);
 	}
+}
+
+void	print_steps(t_game *game)
+{
+	char	*steps;
+	int		len;
+	int		x;
+	int		y;
+
+	steps = ft_itoa(game->steps);
+	len = ft_strlen(steps);
+	x = 32 - (len * len);
+	y = 30;
+	mlx_string_put(game->mlx, game->window, x, y, 0x000000, steps);
+	free(steps);
 }

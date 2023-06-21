@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 07:40:36 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/21 08:47:46 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/21 09:09:44 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,10 @@ void	step_right(t_map *map, t_game *game)
 
 	y = map->player_y;
 	x = map->player_x;
-	if (ft_strchr("1X", map->map[y][x + 1]) != NULL)
+	if (ft_strchr("1XE", map->map[y][x + 1]) != NULL)
 	{
-		if (map->map[y][x + 1] == 'X')
-			free_for_finish(map, game);
-		return ;
-	}
-	if (map->map[y][x + 1] == 'E')
-	{
-		if (map->coin == 0)
+		if (map->map[y][x + 1] == 'X' || (map->map[y][x + 1] == 'E'
+				&& map->coin == 0))
 			free_for_finish(map, game);
 		return ;
 	}
@@ -37,7 +32,7 @@ void	step_right(t_map *map, t_game *game)
 	map->map[y][x + 1] = 'P';
 	map->player_x++;
 	put_wall_and_ground(map, game);
-	put_player(map, game);
+	put_player(map, game, 'r');
 	ft_printf("Steps: %d\n", ++game->steps);
 }
 
@@ -48,15 +43,10 @@ void	step_left(t_map *map, t_game *game)
 
 	y = map->player_y;
 	x = map->player_x;
-	if (ft_strchr("1X", map->map[y][x - 1]) != NULL)
+	if (ft_strchr("1XE", map->map[y][x - 1]) != NULL)
 	{
-		if (map->map[y][x - 1] == 'X')
-			free_for_finish(map, game);
-		return ;
-	}
-	if (map->map[y][x - 1] == 'E')
-	{
-		if (map->coin == 0)
+		if (map->map[y][x - 1] == 'X' || (map->map[y][x - 1] == 'E'
+				&& map->coin == 0))
 			free_for_finish(map, game);
 		return ;
 	}
@@ -66,7 +56,7 @@ void	step_left(t_map *map, t_game *game)
 	map->map[y][x - 1] = 'P';
 	map->player_x--;
 	put_wall_and_ground(map, game);
-	put_player(map, game);
+	put_player(map, game, 'l');
 	ft_printf("Steps: %d\n", ++game->steps);
 }
 
@@ -77,15 +67,10 @@ void	step_down(t_map *map, t_game *game)
 
 	y = map->player_y;
 	x = map->player_x;
-	if (ft_strchr("1X", map->map[y + 1][x]) != NULL)
+	if (ft_strchr("1XE", map->map[y + 1][x]) != NULL)
 	{
-		if (map->map[y + 1][x] == 'X')
-			free_for_finish(map, game);
-		return ;
-	}
-	if (map->map[y + 1][x] == 'E')
-	{
-		if (map->coin == 0)
+		if (map->map[y + 1][x] == 'X' || (map->map[y + 1][x] == 'E'
+				&& map->coin == 0))
 			free_for_finish(map, game);
 		return ;
 	}
@@ -95,7 +80,7 @@ void	step_down(t_map *map, t_game *game)
 	map->map[y + 1][x] = 'P';
 	map->player_y++;
 	put_wall_and_ground(map, game);
-	put_player(map, game);
+	put_player(map, game, 'd');
 	ft_printf("Steps: %d\n", ++game->steps);
 }
 
@@ -106,15 +91,10 @@ void	step_up(t_map *map, t_game *game)
 
 	y = map->player_y;
 	x = map->player_x;
-	if (ft_strchr("1X", map->map[y - 1][x]) != NULL)
+	if (ft_strchr("1XE", map->map[y - 1][x]) != NULL)
 	{
-		if (map->map[y - 1][x] == 'X')
-			free_for_finish(map, game);
-		return ;
-	}
-	if (map->map[y - 1][x] == 'E')
-	{
-		if (map->coin == 0)
+		if (map->map[y - 1][x] == 'X' || (map->map[y - 1][x] == 'E'
+				&& map->coin == 0))
 			free_for_finish(map, game);
 		return ;
 	}
@@ -124,6 +104,6 @@ void	step_up(t_map *map, t_game *game)
 	map->map[y - 1][x] = 'P';
 	map->player_y--;
 	put_wall_and_ground(map, game);
-	put_player(map, game);
+	put_player(map, game, 'u');
 	ft_printf("Steps: %d\n", ++game->steps);
 }
