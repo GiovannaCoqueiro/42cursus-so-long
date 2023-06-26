@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:23:47 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/26 11:11:03 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:07:01 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char **argv)
 	valid_map_draw(&map);
 	game_init(&game);
 	take_sprites(&game, &spt);
-	take_death(&game, &spt);
 	fill_map(&map, &game);
 	gameplay(&game);
 }

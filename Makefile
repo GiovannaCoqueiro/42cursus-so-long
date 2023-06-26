@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:19:15 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/06/26 13:49:08 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/06/26 16:55:50 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ FILES = so_long.c \
 		valid_map_draw.c \
 		valid_map_draw2.c \
 		exit.c \
-		memory_usage.c \
+		map_memory.c \
 		game_init.c \
 		take_sprites.c \
 		fill_map.c \
