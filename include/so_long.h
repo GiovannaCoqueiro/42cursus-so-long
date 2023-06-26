@@ -20,7 +20,6 @@
 # include <mlx.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 # define MAP_CHARS "01CEPX"
 # define FINN_D "./textures/finn_down_64.xpm"
