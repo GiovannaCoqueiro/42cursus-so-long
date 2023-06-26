@@ -76,6 +76,7 @@
 </h4>
 <ul>
   <li>The map must be composed for five elements (6 if you implement the bonus part).</li>
+
   | Char | Element |
   | :---: | :---: |
   | 0 | ground |
@@ -83,6 +84,7 @@
   | C | collectible |
   | E | exit |
   | P | player starting position |
+
   <li>The map must contain  exact 1 exit, 1 player starting position and at least 1 collectible.</li>
   <li>The map must be rectangular.</li>
   <li>The map must be surrounded by walls.</li>
