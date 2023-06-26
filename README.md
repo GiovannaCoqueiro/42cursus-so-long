@@ -98,9 +98,11 @@
 </h3>
 <ul>
   <li>Add some enemy and make the player lose qhen they touch it.</li>
+	
   | Char | Element |
   | :---: | :---: |
   | X | enemy |
+  
   <li>Add animation.</li>
   <li>Diaplay the steps count on the screen.</li>
 </ul>
