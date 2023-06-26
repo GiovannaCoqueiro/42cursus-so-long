@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:19:15 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/06/21 14:09:49 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/06/26 13:49:08 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,18 @@ RM = rm -f
 FILES = so_long.c \
 		valid.c \
 		valid_utils.c \
-		valid_map_draw_utils.c \
-		error.c \
+		valid_map_draw.c \
+		valid_map_draw2.c \
+		exit.c \
 		memory_usage.c \
 		game_init.c \
 		take_sprites.c \
 		fill_map.c \
 		put_images.c \
 		gameplay.c \
-		steps.c
+		steps.c \
+		ending_animation.c \
+		free_images.c
 OBJS = $(FILES:.c=.o)
 GREEN = \033[1;32m
 

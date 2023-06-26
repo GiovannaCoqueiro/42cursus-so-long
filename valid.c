@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/20 19:39:24 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/26 13:54:46 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ void	valid_map_draw(t_map *map)
 	map->fd = open(map->file, O_RDONLY);
 	draw_map(map);
 	close(map->fd);
-	if (check_for_wall_surround(map) == 0 || check_for_player_and_exit(map) == 0
-		|| check_for_coins(map) == 0 || check_for_dif_char(map) == 0)
+	if (check_for_wall_surround(map) == 0 || check_for_player(map) == 0
+		|| check_for_exit(map) == 0 || check_for_coins(map) == 0
+		|| check_for_dif_char(map) == 0)
 	{
 		free_map(map);
 		error_check(8, "ERROR!\nIt doesn't match the requirements!\n", 0, NULL);
@@ -49,7 +50,9 @@ void	valid_map_draw(t_map *map)
 	allocation(&copy);
 	copy_map(&copy, map);
 	copy.path_check = 0;
-	if (check_for_nopath(&copy, map->player_y, map->player_x) == 0)
+	copy.coin_count = 0;
+	check_for_nopath(&copy, map->player_y, map->player_x);
+	if (copy.coin_count != map->coin || copy.path_check != 1)
 	{
 		free_map(map);
 		error_check(8, "ERROR!\nIt doesn't match the requirements!\n", 0, NULL);

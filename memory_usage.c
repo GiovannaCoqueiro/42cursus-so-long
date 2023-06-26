@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 10:52:19 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/21 16:13:49 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:13:35 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,37 +52,4 @@ void	free_mlx(t_game *game)
 {
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
-}
-
-void	free_images(t_game *game)
-{
-	if (game->finn_d != NULL)
-		mlx_destroy_image(game->mlx, game->finn_d);
-	if (game->finn_l != NULL)
-		mlx_destroy_image(game->mlx, game->finn_l);
-	if (game->finn_r != NULL)
-		mlx_destroy_image(game->mlx, game->finn_r);
-	if (game->finn_u != NULL)
-		mlx_destroy_image(game->mlx, game->finn_u);
-	if (game->exit != NULL)
-		mlx_destroy_image(game->mlx, game->exit);
-	if (game->wall != NULL)
-		mlx_destroy_image(game->mlx, game->wall);
-	if (game->ground != NULL)
-		mlx_destroy_image(game->mlx, game->ground);
-	if (game->iceking != NULL)
-		mlx_destroy_image(game->mlx, game->iceking);
-	if (game->coin != NULL)
-		mlx_destroy_image(game->mlx, game->coin);
-	if (game->bmo != NULL)
-		mlx_destroy_image(game->mlx, game->bmo);
-}
-
-void	free_for_finish(t_map *map, t_game *game)
-{
-	mlx_destroy_window(game->mlx, game->window);
-	free_images(game);
-	free_map(map);
-	free_mlx(game);
-	exit(1);
 }

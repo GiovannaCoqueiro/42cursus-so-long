@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 07:34:33 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/21 16:49:05 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/26 10:29:46 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,16 @@
 void	gameplay(t_game *game)
 {
 	mlx_set_font(game->mlx, game->window, "6x10");
+	mlx_loop_hook(game->mlx, no_input, game);
 	mlx_key_hook(game->window, key_pressed, game);
 	mlx_hook(game->window, DestroyNotify, NoEventMask, x_press, game);
 	mlx_loop(game->mlx);
+}
+
+int	no_input(t_game *game)
+{
+	put_exit(game->map, game, game->spt);
+	return (1);
 }
 
 int	x_press(t_game *game)
