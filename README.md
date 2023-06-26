@@ -110,7 +110,7 @@
 </h2>
 Clone this repository in you local computer using a terminal:
 <ul>
-	<li>$> git clone https:https://github.com/GiovannaCoqueiro/42cursus-printf [repository_local]</li>
+	<li>$> git clone git@github.com:GiovannaCoqueiro/42cursus-so-long.git [repository_local]</li>
 </ul>
 		
 After cloning the project in your local reposiory you can run some commands you can find in Makefile:
