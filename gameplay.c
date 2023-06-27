@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 07:34:33 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/26 10:29:46 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:59:37 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	no_input(t_game *game)
 
 int	x_press(t_game *game)
 {
+	ft_printf("You closed the game =/\n");
 	free_for_finish(game->map, game);
 	return (1);
 }
@@ -36,7 +37,10 @@ int	x_press(t_game *game)
 int	key_pressed(int key, t_game *game)
 {
 	if (key == XK_Escape)
+	{
+		ft_printf("You closed the game =/\n");
 		free_for_finish(game->map, game);
+	}
 	else if (key == XK_d || key == XK_Right)
 		step_right(game->map, game);
 	else if (key == XK_a || key == XK_Left)

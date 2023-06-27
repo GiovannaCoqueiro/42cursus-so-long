@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 10:52:19 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/26 16:56:40 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:52:24 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	allocation(t_map *map)
 
 	map->map = malloc(map->height * sizeof(char *));
 	if (map->map == NULL)
-		error_check(7, "ERROR!\nFail to allocate memory!", 0, NULL);
+		error_check(7, "Error\nFail to allocate memory!", 0, NULL);
 	i = -1;
 	while (++i < map->height)
 	{
@@ -33,7 +33,7 @@ void	allocation(t_map *map)
 			while (++j < i)
 				free(map->map[i]);
 			free(map->map);
-			error_check(7, "ERROR!\nFail to allocate memory!", 0, NULL);
+			error_check(7, "Error\nFail to allocate memory!", 0, NULL);
 		}
 	}
 }

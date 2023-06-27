@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:38:00 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/26 15:33:07 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:57:21 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	good_ending(t_map *map, t_game *game, t_sprite *spt)
 	while (repeat++ < 40000)
 		mlx_put_image_to_window(game->mlx, game->window, spt->win5,
 			map->player_x * 64, map->player_y * 64);
+	ft_printf("VICTORY!!!\n");
 	free_for_finish(map, game);
 }
 
@@ -59,5 +60,6 @@ void	bad_ending(t_map *map, t_game *game, t_sprite *spt)
 	while (repeat++ < 48000)
 		mlx_put_image_to_window(game->mlx, game->window, spt->death5,
 			map->player_x * 64, map->player_y * 64);
+	ft_printf("GAME OVER =(\nTry again\n");
 	free_for_finish(map, game);
 }

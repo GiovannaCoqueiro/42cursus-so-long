@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:32:08 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/26 17:02:11 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:54:12 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	take_sprites(t_game *game, t_sprite *spt)
 	if (spt->finn_d == NULL || spt->finn_l == NULL || spt->finn_r == NULL
 		|| spt->finn_u == NULL || spt->coin == NULL || spt->ground == NULL
 		|| spt->wall == NULL || spt->iceking == NULL || spt->bmo == NULL)
-		error_check(11, "ERROR!\nFail to take images!\n", 2, game);
+		error_check(11, "Error\nFail to take images!\n", 2, game);
 	take_exit(game, spt);
 	take_win(game, spt);
 	take_death(game, spt);
@@ -50,7 +50,7 @@ void	take_exit(t_game *game, t_sprite *spt)
 	spt->exit3 = mlx_xpm_file_to_image(game->mlx, EXIT3, &game->img_width,
 			&game->img_height);
 	if (spt->exit1 == NULL || spt->exit2 == NULL || spt->exit3 == NULL)
-		error_check(11, "ERROR!\nFail to take images!\n", 2, game);
+		error_check(11, "Error\nFail to take images!\n", 2, game);
 }
 
 void	take_win(t_game *game, t_sprite *spt)
@@ -67,7 +67,7 @@ void	take_win(t_game *game, t_sprite *spt)
 			&game->img_height);
 	if (spt->win1 == NULL || spt->win2 == NULL || spt->win3 == NULL
 		|| spt->win4 == NULL || spt->win5 == NULL)
-		error_check(11, "ERROR!\nFail to take images!\n", 2, game);
+		error_check(11, "Error\nFail to take images!\n", 2, game);
 }
 
 void	take_death(t_game *game, t_sprite *spt)
@@ -84,5 +84,5 @@ void	take_death(t_game *game, t_sprite *spt)
 			&game->img_height);
 	if (spt->death1 == NULL || spt->death2 == NULL || spt->death3 == NULL
 		|| spt->death4 == NULL || spt->death5 == NULL)
-		error_check(11, "ERROR!\nFail to take images!\n", 2, game);
+		error_check(11, "Error\nFail to take images!\n", 2, game);
 }
