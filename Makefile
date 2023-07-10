@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:19:15 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/06/26 16:55:50 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/07/10 08:54:54 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,21 +17,21 @@ XFLAGS =  -lmlx -lXext -lX11
 INC = ./include
 LIBFT = ./libft
 RM = rm -f
-FILES = so_long.c \
-		valid.c \
-		valid_utils.c \
-		valid_map_draw.c \
-		valid_map_draw2.c \
-		exit.c \
-		map_memory.c \
-		game_init.c \
-		take_sprites.c \
-		fill_map.c \
-		put_images.c \
-		gameplay.c \
-		steps.c \
-		ending_animation.c \
-		free_images.c
+FILES = srcs/so_long.c \
+		srcs/valid.c \
+		srcs/valid_utils.c \
+		srcs/valid_map_draw.c \
+		srcs/valid_map_draw2.c \
+		srcs/exit.c \
+		srcs/map_memory.c \
+		srcs/game_init.c \
+		srcs/take_sprites.c \
+		srcs/fill_map.c \
+		srcs/put_images.c \
+		srcs/gameplay.c \
+		srcs/steps.c \
+		srcs/ending_animation.c \
+		srcs/free_images.c
 OBJS = $(FILES:.c=.o)
 GREEN = \033[1;32m
 
