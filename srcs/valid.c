@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/27 14:54:39 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/11 08:47:17 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	valid_map_call(int argc, char *map_path, t_map *map)
 	int	len;
 	int	fd;
 
-	if (argc < 2 || argc > 2)
-		error_check(1, "Error\nUsage: ./so_long maps/<file>.ber\n", 0, NULL);
+	if (argc != 2)
+		error_check(1, "Error\nUsage: ./so_long maps/<file.ber>\n", 0, NULL);
 	len = ft_strlen(map_path);
 	if (len <= 4 || (ft_strncmp(&map_path[len - 4], ".ber", 4) != 0))
 		error_check(2, "Error\nInvalid map name!\n", 0, NULL);
@@ -29,6 +29,33 @@ void	valid_map_call(int argc, char *map_path, t_map *map)
 		error_check(3, "Error\nMap doesn't exist!\n", 0, NULL);
 	}
 	map->fd = fd;
+}
+
+void	get_map_size(t_map *map)
+{
+	char	*line;
+
+	map->width = 0;
+	map->height = 0;
+	while (1)
+	{
+		line = get_next_line(map->fd);
+		if (line == NULL)
+			break ;
+		map->height++;
+		if (map->width == 0)
+			map->width = ft_strlen(line) - 1;
+		if (map->width != ft_strlen(line) - 1 && line[map->width] != '\0')
+		{
+			free(line);
+			error_check(6, "Error\nThe map must be rectangular!\n", 0, NULL);
+		}
+		free(line);
+	}
+	if (map->height > 16 || map->width > 30)
+		error_check(5, "Error\nMap is too big!\n", 0, NULL);
+	map->size = map->width * map->height;
+	close(map->fd);
 }
 
 void	valid_map_draw(t_map *map)
@@ -58,4 +85,46 @@ void	valid_map_draw(t_map *map)
 		error_check(8, "Error\nIt doesn't match the requirements!\n", 0, NULL);
 	}
 	free_map(&copy);
+}
+
+void	draw_map(t_map *map)
+{
+	int		x_count;
+	int		y_count;
+	char	*temp;
+
+	temp = malloc(1 * sizeof(char));
+	if (temp == NULL)
+		return ;
+	y_count = -1;
+	while (++y_count < map->height)
+	{
+		x_count = -1;
+		while (++x_count <= map->width)
+		{
+			if (read(map->fd, temp, 1) == 0)
+			{
+				free(temp);
+				map->map[y_count][x_count] = '\0';
+				return ;
+			}
+			map->map[y_count][x_count] = *temp;
+		}
+		map->map[y_count][x_count] = '\0';
+	}
+	free(temp);
+}
+
+void	copy_map(t_map *copy, t_map *map)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < map->height)
+	{
+		j = -1;
+		while (++j <= map->width)
+			copy->map[i][j] = map->map[i][j];
+	}
 }

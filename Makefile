@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:19:15 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/07/10 08:54:54 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/07/11 07:54:06 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ LIBFT = ./libft
 RM = rm -f
 FILES = srcs/so_long.c \
 		srcs/valid.c \
-		srcs/valid_utils.c \
 		srcs/valid_map_draw.c \
 		srcs/valid_map_draw2.c \
 		srcs/exit.c \
@@ -57,4 +56,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

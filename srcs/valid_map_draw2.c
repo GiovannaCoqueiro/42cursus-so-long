@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:05:13 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/26 13:48:31 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/11 08:16:21 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	check_for_nopath(t_map *map, int y, int x)
 {
 	if (map->map[y][x] == 'C')
 		map->coin_count++;
-	if (y == 0 || y == map->height - 1 || x == 0 || x > map->width - 1)
+	if (y == 0 || y == map->height - 1 || x == 0 || x == map->width - 1)
 		return ;
 	map->map[y][x] = '1';
 	if (map->map[y - 1][x] == 'E' || map->map[y + 1][x] == 'E' ||
