@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/07/17 14:44:22 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:36:05 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	valid_map_draw(t_map *map)
 	check_for_nopath(&copy, map->player_y, map->player_x);
 	if (copy.coin_count != map->coin || copy.path_check != 1)
 	{
+		free_map(&copy);
 		free_map(map);
 		error_check(8, "Error\nIt doesn't match the requirements!\n", 0, NULL);
 	}
