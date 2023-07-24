@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:17:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/07/24 07:16:37 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/24 07:17:56 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "libft.h"
 # include <X11/keysym.h>
@@ -22,7 +22,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# define MAP_CHARS "01CEP"
+# define MAP_CHARS "01CEPX"
 
 # define FINN_D "./textures/finn_down_64.xpm"
 # define FINN_L "textures/finn_left_64.xpm"

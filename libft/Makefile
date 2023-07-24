@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 09:09:09 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/06/21 16:19:01 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/07/24 07:25:43 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,9 @@ FILES = ft_strlen.c ft_strjoin.c ft_strchr.c ft_strncmp.c get_next_line.c \
 			ft_printf.c print_char.c print_str.c print_ptr.c print_nbr.c \
 			print_unint.c print_hex.c ft_itoa.c
 OBJS = $(FILES:.c=.o)
-GREEN = \033[1;32m
-NORMAL = \033[0m
 
 all: $(NAME)
-	@echo "$(GREEN)libft is ready!$(NORMAL)"
+	@echo "libft is ready!"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@

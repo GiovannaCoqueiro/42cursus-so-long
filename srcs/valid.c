@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/07/11 08:47:17 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/17 14:44:22 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,8 @@ void	draw_map(t_map *map)
 			}
 			map->map[y_count][x_count] = *temp;
 		}
-		map->map[y_count][x_count] = '\0';
 	}
+	map->map[y_count][x_count] = '\0';
 	free(temp);
 }
 
