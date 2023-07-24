@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:38:00 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/06/27 14:57:21 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/24 14:14:24 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	good_ending(t_map *map, t_game *game, t_sprite *spt)
 {
 	int	repeat;
 
+	print_steps(game);
+	ft_printf("Steps: %d\n", ++game->steps);
 	repeat = 0;
 	put_wall_and_ground(map, game, spt);
 	while (repeat++ < 8000)
