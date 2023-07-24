@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:50:21 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/07/10 08:53:46 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/24 07:53:25 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	free_for_finish(t_map *map, t_game *game)
 	free_death(game);
 	free_map(map);
 	free_mlx(game);
-	exit(1);
+	exit(0);
 }
