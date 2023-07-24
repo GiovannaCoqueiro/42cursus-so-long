@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/07/24 12:16:24 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/24 12:45:23 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void	valid_map_call(int argc, char *map_path, t_map *map)
 {
-	int	len;
-	int	fd;
+	int		len;
+	char	temp[1];
 
 	if (argc != 2)
 		error_check(1, "Error\nUsage: ./so_long maps/<file.ber>\n", 0, NULL);
 	len = ft_strlen(map_path);
 	if (len <= 9 || (ft_strncmp(&map_path[len - 4], ".ber", 4) != 0))
 		error_check(2, "Error\nInvalid map name!\n", 0, NULL);
-	fd = open(map_path, O_RDONLY);
-	if (fd < 0)
+	map->fd = open(map_path, O_RDONLY);
+	if (map->fd < 0 || read(map->fd, temp, 1) == 0)
 	{
-		close(fd);
+		close(map->fd);
 		error_check(3, "Error\nMap doesn't exist!\n", 0, NULL);
 	}
-	map->fd = fd;
+	close(map->fd);
 }
 
 void	get_map_size(t_map *map)
@@ -37,6 +37,7 @@ void	get_map_size(t_map *map)
 
 	map->width = 0;
 	map->height = 0;
+	map->fd = open(map->file, O_RDONLY);
 	while (1)
 	{
 		line = get_next_line(map->fd);
