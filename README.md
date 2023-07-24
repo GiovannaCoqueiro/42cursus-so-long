@@ -127,4 +127,5 @@ After cloning the project in your local reposiory you can run some commands you 
 </ul>
 
 Than you can run the game with: ./so_long maps/<map_file.ber>
+
 You can also create and run any map, if it follows the requirements.
