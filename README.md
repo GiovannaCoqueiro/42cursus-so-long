@@ -85,7 +85,7 @@
   | E | exit |
   | P | player starting position |
 
-  <li>The map must contain  exact 1 exit, 1 player starting position and at least 1 collectible.</li>
+  <li>The map must contain exactly 1 exit, 1 player starting position and at least 1 collectible.</li>
   <li>The map must be rectangular.</li>
   <li>The map must be surrounded by walls.</li>
   <li>The map must have a valid path between the player starting position and the exit, and be able to collect all the collectibles.</li>
@@ -125,3 +125,6 @@ After cloning the project in your local reposiory you can run some commands you 
 	<li>$> <b>make fclean:</b> executes the <b>clean</b> command and also deletes the libftprintf.a</li>
 	<li>$> <b>make re:</b> executes the <b>fclean</b> command followed by the <b>all</b> command</li>
 </ul>
+
+Than you can run the game with: ./so_long maps/<map_file.ber>
+You can also create and run any map, if it follows the requirements.
