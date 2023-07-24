@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 07:17:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/07/24 07:17:56 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/24 16:53:11 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_map
 	int		exit_x;
 	int		exit_y;
 	int		path_check;
+	int		check_format;
 }			t_map;
 
 typedef struct s_sprite

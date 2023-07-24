@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/07/24 12:45:23 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/24 16:59:23 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	get_map_size(t_map *map)
 	map->width = 0;
 	map->height = 0;
 	map->fd = open(map->file, O_RDONLY);
+	map->check_format = 0;
 	while (1)
 	{
 		line = get_next_line(map->fd);
@@ -46,13 +47,12 @@ void	get_map_size(t_map *map)
 		if (map->width == 0)
 			map->width = ft_strlen(line) - 1;
 		if (map->width != ft_strlen(line) - 1 && line[map->width] != '\0')
-		{
-			free(line);
-			error_check(6, "Error\nThe map must be rectangular!\n", 0, NULL);
-		}
+			map->check_format = 1;
 		map->height++;
 		free(line);
 	}
+	if (map->check_format == 1)
+		error_check(4, "Error\nIt doesn't match the requirements!\n", 0, NULL);
 	if (map->height > 16 || map->width > 30)
 		error_check(5, "Error\nMap is too big!\n", 0, NULL);
 	map->size = map->width * map->height;
@@ -67,7 +67,7 @@ void	valid_map_draw(t_map *map)
 	draw_map(map);
 	if (check_for_wall_surround(map) == 0 || check_for_player(map) == 0
 		|| check_for_exit(map) == 0 || check_for_coins(map) == 0
-		|| check_for_dif_char(map) == 0)
+		|| check_for_dif_char(map) == 0 || map->check_format == 1)
 	{
 		free_map(map);
 		error_check(8, "Error\nIt doesn't match the requirements!\n", 0, NULL);
