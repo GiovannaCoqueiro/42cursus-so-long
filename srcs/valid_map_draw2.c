@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 12:05:13 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/07/11 08:16:21 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:40:05 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	check_for_nopath(t_map *map, int y, int x)
 	if (map->map[y - 1][x] == 'E' || map->map[y + 1][x] == 'E' ||
 		map->map[y][x - 1] == 'E' || map->map[y][x + 1] == 'E')
 		map->path_check = 1;
-	if (ft_strchr("1X", map->map[y - 1][x]) == NULL)
+	if (ft_strchr("1XE", map->map[y - 1][x]) == NULL)
 		check_for_nopath(map, y - 1, x);
-	if (ft_strchr("1X", map->map[y + 1][x]) == NULL)
+	if (ft_strchr("1XE", map->map[y + 1][x]) == NULL)
 		check_for_nopath(map, y + 1, x);
-	if (ft_strchr("1X", map->map[y][x - 1]) == NULL)
+	if (ft_strchr("1XE", map->map[y][x - 1]) == NULL)
 		check_for_nopath(map, y, x - 1);
-	if (ft_strchr("1X", map->map[y][x + 1]) == NULL)
+	if (ft_strchr("1XE", map->map[y][x + 1]) == NULL)
 		check_for_nopath(map, y, x + 1);
 }

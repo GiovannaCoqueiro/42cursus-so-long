@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:12:15 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/07/24 11:36:05 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/07/24 12:16:24 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	valid_map_call(int argc, char *map_path, t_map *map)
 	if (argc != 2)
 		error_check(1, "Error\nUsage: ./so_long maps/<file.ber>\n", 0, NULL);
 	len = ft_strlen(map_path);
-	if (len <= 4 || (ft_strncmp(&map_path[len - 4], ".ber", 4) != 0))
+	if (len <= 9 || (ft_strncmp(&map_path[len - 4], ".ber", 4) != 0))
 		error_check(2, "Error\nInvalid map name!\n", 0, NULL);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
@@ -42,7 +42,6 @@ void	get_map_size(t_map *map)
 		line = get_next_line(map->fd);
 		if (line == NULL)
 			break ;
-		map->height++;
 		if (map->width == 0)
 			map->width = ft_strlen(line) - 1;
 		if (map->width != ft_strlen(line) - 1 && line[map->width] != '\0')
@@ -50,6 +49,7 @@ void	get_map_size(t_map *map)
 			free(line);
 			error_check(6, "Error\nThe map must be rectangular!\n", 0, NULL);
 		}
+		map->height++;
 		free(line);
 	}
 	if (map->height > 16 || map->width > 30)
@@ -64,7 +64,6 @@ void	valid_map_draw(t_map *map)
 
 	map->fd = open(map->file, O_RDONLY);
 	draw_map(map);
-	close(map->fd);
 	if (check_for_wall_surround(map) == 0 || check_for_player(map) == 0
 		|| check_for_exit(map) == 0 || check_for_coins(map) == 0
 		|| check_for_dif_char(map) == 0)
@@ -114,6 +113,7 @@ void	draw_map(t_map *map)
 	}
 	map->map[y_count][x_count] = '\0';
 	free(temp);
+	close(map->fd);
 }
 
 void	copy_map(t_map *copy, t_map *map)

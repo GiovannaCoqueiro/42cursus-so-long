@@ -6,13 +6,13 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:19:15 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/07/24 07:25:23 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/07/24 11:50:35 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -I$(INC)
+CFLAGS = -Wall -Wextra -Werror -g3 -I$(INC)
 XFLAGS =  -lmlx -lXext -lX11
 INC = ./include
 LIBFT = ./libft
