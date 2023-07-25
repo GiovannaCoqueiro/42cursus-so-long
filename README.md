@@ -18,7 +18,14 @@
 	<h2>
 		Final score
 	</h2>
-	<img src= alt=so long grade/>
+	<img src="https://github.com/GiovannaCoqueiro/42cursus-so-long/assets/115947494/fabaeaf5-3b12-46fc-af5c-104c03b28526" alt=so long grade/>
+</div>
+
+<div align=center>
+	<h2>
+		Final score
+	</h2>
+	<img src="https://github.com/GiovannaCoqueiro/42cursus-get-next-line/assets/115947494/54772633-0e45-4d33-9f0f-f7fa5b8c89ce" alt=get next line grade/>
 </div>
 
 ---
