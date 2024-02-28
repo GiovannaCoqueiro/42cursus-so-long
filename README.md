@@ -113,9 +113,10 @@
     Instructions to use
 </h2>
 Clone this repository in you local computer using a terminal:
-<ul>
-	<li>$> git clone git@github.com:GiovannaCoqueiro/42cursus-so-long.git [repository_local]</li>
-</ul>
+
+```sh
+$> git clone git@github.com:GiovannaCoqueiro/42cursus-so-long.git [repository_local]
+```
 		
 After cloning the project in your local reposiory you can run some commands you can find in Makefile:
 <ul>
@@ -126,6 +127,9 @@ After cloning the project in your local reposiory you can run some commands you 
 	<li>$> <b>make re:</b> executes the <b>fclean</b> command followed by the <b>all</b> command</li>
 </ul>
 
-Than you can run the game with: ./so_long maps/<map_file.ber>
+Than you can run the game with:
+```sh
+./so_long maps/<map_file.ber>
+```
 
 You can also create and run any map, if it follows the requirements.
